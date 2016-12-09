@@ -1,11 +1,11 @@
-defmodule Fantasygame.UserSocket do
+defmodule Ontopic.UserSocket do
   use Phoenix.Socket
 
-  alias Fantasygame.{GuardianSerializer}
+  alias Ontopic.{GuardianSerializer}
 
   # Channels
-  channel "users:*", Fantasygame.UserChannel
-  channel "topics:*", Fantasygame.TopicChannel
+  channel "users:*", Ontopic.UserChannel
+  channel "topics:*", Ontopic.TopicChannel
 
   # Transports
   transport :websocket, Phoenix.Transports.WebSocket

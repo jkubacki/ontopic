@@ -1,3 +1,3 @@
-defmodule Fantasygame.PageViewTest do
-  use Fantasygame.ConnCase, async: true
+defmodule Ontopic.PageViewTest do
+  use Ontopic.ConnCase, async: true
 end

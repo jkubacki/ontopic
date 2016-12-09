@@ -1,5 +1,5 @@
-defmodule Fantasygame.User do
-  use Fantasygame.Web, :model
+defmodule Ontopic.User do
+  use Ontopic.Web, :model
 
   @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
 

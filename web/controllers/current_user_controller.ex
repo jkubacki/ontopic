@@ -1,7 +1,7 @@
-defmodule Fantasygame.CurrentUserController do
-  use Fantasygame.Web, :controller
+defmodule Ontopic.CurrentUserController do
+  use Ontopic.Web, :controller
 
-  plug Guardian.Plug.EnsureAuthenticated, handler: Fantasygame.SessionController
+  plug Guardian.Plug.EnsureAuthenticated, handler: Ontopic.SessionController
 
   def show(conn, _) do
     user = Guardian.Plug.current_resource(conn)

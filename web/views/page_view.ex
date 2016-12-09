@@ -1,3 +1,3 @@
-defmodule Fantasygame.PageView do
-  use Fantasygame.Web, :view
+defmodule Ontopic.PageView do
+  use Ontopic.Web, :view
 end

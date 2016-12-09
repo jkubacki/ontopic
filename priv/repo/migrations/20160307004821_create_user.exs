@@ -1,4 +1,4 @@
-defmodule Fantasygame.Repo.Migrations.CreateUser do
+defmodule Ontopic.Repo.Migrations.CreateUser do
   use Ecto.Migration
 
   def change do

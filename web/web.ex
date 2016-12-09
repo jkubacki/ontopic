@@ -1,12 +1,12 @@
-defmodule Fantasygame.Web do
+defmodule Ontopic.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Fantasygame.Web, :controller
-      use Fantasygame.Web, :view
+      use Ontopic.Web, :controller
+      use Ontopic.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule Fantasygame.Web do
     quote do
       use Phoenix.Controller
 
-      alias Fantasygame.Repo
+      alias Ontopic.Repo
       import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
-      import Fantasygame.Router.Helpers
-      import Fantasygame.Gettext
+      import Ontopic.Router.Helpers
+      import Ontopic.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule Fantasygame.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Fantasygame.Router.Helpers
-      import Fantasygame.ErrorHelpers
-      import Fantasygame.Gettext
+      import Ontopic.Router.Helpers
+      import Ontopic.ErrorHelpers
+      import Ontopic.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule Fantasygame.Web do
     quote do
       use Phoenix.Channel
 
-      alias Fantasygame.Repo
+      alias Ontopic.Repo
       import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
-      import Fantasygame.Gettext
+      import Ontopic.Gettext
     end
   end
 

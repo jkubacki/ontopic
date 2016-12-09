@@ -1,5 +1,5 @@
-defmodule Fantasygame.ErrorView do
-  use Fantasygame.Web, :view
+defmodule Ontopic.ErrorView do
+  use Ontopic.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

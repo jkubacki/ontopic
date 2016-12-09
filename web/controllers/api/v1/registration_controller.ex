@@ -1,7 +1,7 @@
-defmodule Fantasygame.RegistrationController do
-  use Fantasygame.Web, :controller
+defmodule Ontopic.RegistrationController do
+  use Ontopic.Web, :controller
 
-  alias Fantasygame.{Repo, User}
+  alias Ontopic.{Repo, User}
 
   plug :scrub_params, "user" when action in [:create]
 
@@ -14,7 +14,7 @@ defmodule Fantasygame.RegistrationController do
 
         conn
         |> put_status(:created)
-        |> render(Fantasygame.SessionView, "show.json", jwt: jwt, user: user)
+        |> render(Ontopic.SessionView, "show.json", jwt: jwt, user: user)
 
       {:error, changeset} ->
         conn

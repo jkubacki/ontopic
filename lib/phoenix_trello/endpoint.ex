@@ -1,14 +1,14 @@
-defmodule Fantasygame.Endpoint do
-  use Phoenix.Endpoint, otp_app: :fantasygame
+defmodule Ontopic.Endpoint do
+  use Phoenix.Endpoint, otp_app: :ontopic
 
-  socket "/socket", Fantasygame.UserSocket
+  socket "/socket", Ontopic.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :fantasygame, gzip: false,
+    at: "/", from: :ontopic, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -32,8 +32,8 @@ defmodule Fantasygame.Endpoint do
 
   plug Plug.Session,
     store: :cookie,
-    key: "_fantasygame_key",
+    key: "_ontopic_key",
     signing_salt: "GAhAuwUX"
 
-  plug Fantasygame.Router
+  plug Ontopic.Router
 end

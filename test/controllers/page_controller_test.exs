@@ -1,5 +1,5 @@
-defmodule Fantasygame.PageControllerTest do
-  use Fantasygame.ConnCase
+defmodule Ontopic.PageControllerTest do
+  use Ontopic.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

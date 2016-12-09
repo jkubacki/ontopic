@@ -1,5 +1,5 @@
-defmodule Fantasygame.SessionView do
-  use Fantasygame.Web, :view
+defmodule Ontopic.SessionView do
+  use Ontopic.Web, :view
 
   def render("show.json", %{jwt: jwt, user: user}) do
     %{

@@ -1,5 +1,5 @@
-defmodule Fantasygame.UserChannel do
-  use Fantasygame.Web, :channel
+defmodule Ontopic.UserChannel do
+  use Ontopic.Web, :channel
 
   def join("users:" <> user_id, _params, socket) do
     current_user = socket.assigns.current_user

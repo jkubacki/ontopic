@@ -1,4 +1,4 @@
-# Fantasygame
+# Ontopic
 
 To start your Phoenix app:
 

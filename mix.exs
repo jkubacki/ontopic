@@ -1,8 +1,8 @@
-defmodule Fantasygame.Mixfile do
+defmodule Ontopic.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :fantasygame,
+    [app: :ontopic,
      version: "0.0.1",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -17,7 +17,7 @@ defmodule Fantasygame.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Fantasygame, []},
+    [mod: {Ontopic, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex, :comeonin]]
   end
