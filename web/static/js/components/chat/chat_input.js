@@ -3,6 +3,14 @@ import Actions from '../../actions/chat'
 
 export default class ChatInput extends React.Component {
   componentDidMount() {
+    this._focusOnInput()
+  }
+
+  _clearInput() {
+    this.refs.messageInput.value = '';
+  }
+
+  _focusOnInput() {
     this.refs.messageInput.focus();
   }
 
@@ -13,7 +21,9 @@ export default class ChatInput extends React.Component {
     const message = messageInput.value;
     const { dispatch } = this.props;
     dispatch(Actions.sendMessage(message));
-    messageInput.value = '';
+
+    this._clearInput();
+    this._focusOnInput();
   }
 
   render() {
