@@ -1,1 +1,2 @@
 webpack --progress -p
+mix phoenix.digest
