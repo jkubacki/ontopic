@@ -11,6 +11,7 @@ defmodule Ontopic.TopicChannel do
 
   def handle_in("message:new", payload, socket) do
     broadcast socket, "message:created", payload
+    {:noreply, socket}
   end
 
   # Channels can be used in a request/response fashion
