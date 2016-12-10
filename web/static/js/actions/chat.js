@@ -13,12 +13,16 @@ Actions.connectToChannel = (socket, dispatch) => {
     });
   });
 
-  return dispatch => {
+  channel.on("message:created", (msg) => {
     dispatch({
-      type: Constants.CHAT_SEND_MESSAGE,
-      message: message,
+      type: Constants.CHAT_NEW_MESSAGE,
+      message: msg.message,
     });
-  }
+  })
+}
+
+Actions.sendMessage = (message, channel) => {
+  channel.push("message:new", { message: message })
 }
 
 export default Actions;
