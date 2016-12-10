@@ -9,7 +9,7 @@ class ChatView extends React.Component {
     if (!socket) {
       return false;
     }
-    this.props.dispatch(Actions.connectToChannel(socket));
+    Actions.connectToChannel(socket, this.props.dispatch);
   }
 
   render() {
@@ -18,7 +18,8 @@ class ChatView extends React.Component {
         Hello Index View
         <ChatBox
           dispatch={this.props.dispatch}
-          messages={this.props.chat.messages} />
+          messages={this.props.chat.messages}
+          channel={this.props.chat.channel} />
       </div>
     )
   }

@@ -19,8 +19,8 @@ export default class ChatInput extends React.Component {
 
     const { messageInput } = this.refs;
     const message = messageInput.value;
-    const { dispatch } = this.props;
-    dispatch(Actions.sendMessage(message));
+    const { dispatch, channel } = this.props;
+    dispatch(Actions.sendMessage(message, channel));
 
     this._clearInput();
     this._focusOnInput();
