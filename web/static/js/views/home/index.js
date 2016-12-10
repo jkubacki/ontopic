@@ -7,7 +7,8 @@ class HomeIndexView extends React.Component {
     return (
       <div>
         Hello Index View
-        <ChatBox></ChatBox>
+        <ChatBox
+          dispatch={this.props.dispatch} />
       </div>
     )
   }
