@@ -20,4 +20,12 @@ defmodule Ontopic.Topic do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  defimpl Poison.Encoder, for: Ontopic.Topic do
+    def encode(model, options) do
+      model
+      |> Map.take([:id, :name])
+      |> Poison.Encoder.encode(options)
+    end
+  end
 end
