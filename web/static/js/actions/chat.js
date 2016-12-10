@@ -3,7 +3,8 @@ import Constants     from '../constants';
 const Actions = {};
 
 Actions.sendMessage = (message) => {
-  console.log(`Sending ${message}`);
+
+  // TODO
 
   return dispatch => {
     dispatch({
