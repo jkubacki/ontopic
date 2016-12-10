@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect }          from 'react-redux';
 import ChatBox from '../../components/chat/chat_box';
+import Actions from '../../actions/chat'
 
 class ChatView extends React.Component {
+  componentDidMount() {
+    const { socket } = this.props.session;
+    if (!socket) {
+      return false;
+    }
+    this.props.dispatch(Actions.connectToChannel(socket));
+  }
+
   render() {
     return (
       <div>
