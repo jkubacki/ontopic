@@ -9,6 +9,10 @@ defmodule Ontopic.TopicChannel do
     end
   end
 
+  def handle_in("message:new", payload, socket) do
+    broadcast socket, "message:created", payload
+  end
+
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
   def handle_in("ping", payload, socket) do
