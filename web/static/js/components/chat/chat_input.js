@@ -1,4 +1,5 @@
 import React from 'react';
+import Actions from '../../actions/chat'
 
 export default class ChatInput extends React.Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ export default class ChatInput extends React.Component {
     const { messageInput } = this.refs;
     const message = messageInput.value;
     console.log(message);
+    dispatch(Actions.sendMessage(message));
     messageInput.value = '';
   }
 
