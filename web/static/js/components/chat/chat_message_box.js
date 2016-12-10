@@ -3,11 +3,10 @@ import ChatMessage from './chat_message'
 
 export default class ChatMessageBox extends React.Component {
   _renderMessages(messages) {
-    var i = 0;
     return messages.map((message) => {
       return <ChatMessage
-                key={i += 1}
-                message={message} />;
+                key={message.id}
+                message={message.body} />;
     });
   }
 
