@@ -11,6 +11,7 @@ export default class ChatInput extends React.Component {
     const { messageInput } = this.refs;
     const message = messageInput.value;
     console.log(message);
+    messageInput.value = '';
   }
 
   render() {
