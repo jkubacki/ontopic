@@ -7,10 +7,10 @@ export default class ChatBox extends React.Component {
     return (
       <div>
         -> Hello Chatbox
-        <ChatMessageBox
-          messages={this.props.messages} />
         <ChatInput
           dispatch={this.props.dispatch} />
+        <ChatMessageBox
+          messages={this.props.messages} />
       </div>
     )
   }
