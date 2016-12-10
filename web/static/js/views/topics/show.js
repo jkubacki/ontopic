@@ -9,7 +9,7 @@ class TopicsShowView extends React.Component {
     if (!socket) {
       return false;
     }
-    Actions.connectToChannel(socket, this.props.dispatch);
+    Actions.connectToTopic(this.props.params.id, socket, this.props.dispatch);
   }
 
   render() {

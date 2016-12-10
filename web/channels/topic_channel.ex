@@ -2,9 +2,8 @@ defmodule Ontopic.TopicChannel do
   use Ontopic.Web, :channel
   alias Ontopic.{Repo, Message, User}
 
-  def join("topics:lobby", payload, socket) do
-    user = Repo.get!(User, socket.assigns.current_user.id)
-    messages = Message |> Ecto.Query.where(user_id: ^user.id) |> Repo.all
+  def join("topics:" <> topic_id, payload, socket) do
+    messages = Message |> Ecto.Query.where(topic_id: ^topic_id) |> Repo.all
     if authorized?(payload) do
       {:ok, %{messages: messages}, socket}
     else

@@ -3,14 +3,15 @@ import Constants     from '../constants';
 const Actions = {};
 
 
-Actions.connectToChannel = (socket, dispatch) => {
-  const channel = socket.channel("topics:lobby")
+Actions.connectToTopic = (topicId, socket, dispatch) => {
+  const channel = socket.channel(`topics:${topicId}`)
 
   channel.join().receive("ok", (response) => {
     dispatch({
       type: Constants.CHAT_CONNECTED_TO_CHANNEL,
       channel: channel,
-      messages: response.messages
+      messages: response.messages,
+      topicId: topicId
     });
   });
 

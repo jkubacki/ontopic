@@ -2,7 +2,8 @@ import Constants from '../constants';
 
 const initialState = {
   messages: [],
-  channel: null
+  channel: null,
+  topicId: null
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -11,7 +12,7 @@ export default function reducer(state = initialState, action = {}) {
       state.messages.push(action.message);
       return { ...state, messages: state.messages };
     case Constants.CHAT_CONNECTED_TO_CHANNEL:
-      return { ...state, channel: action.channel, messages: action.messages };
+      return { ...state, channel: action.channel, messages: action.messages, topicId: action.topicId };
     default:
       return state;
   }
