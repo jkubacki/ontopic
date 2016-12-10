@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect }          from 'react-redux';
 import ChatBox from '../../components/chat/chat_box';
-import Actions from '../../actions/chat'
+import Actions from '../../actions/topic'
 
 class TopicsShowView extends React.Component {
   componentDidMount() {
