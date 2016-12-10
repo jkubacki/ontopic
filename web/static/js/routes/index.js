@@ -2,7 +2,7 @@ import { IndexRoute, Route }        from 'react-router';
 import React                        from 'react';
 import MainLayout                   from '../layouts/main';
 import AuthenticatedContainer       from '../containers/authenticated';
-import ChatView                from '../views/chat';
+import TopicView                    from '../views/topic';
 import RegistrationsNew             from '../views/registrations/new';
 import SessionsNew                  from '../views/sessions/new';
 
@@ -13,7 +13,7 @@ export default function configRoutes(store) {
       <Route path="/sign_in" component={SessionsNew} />
 
       <Route path="/" component={AuthenticatedContainer}>
-        <IndexRoute component={ChatView} />
+        <IndexRoute component={TopicView} />
       </Route>
     </Route>
   );

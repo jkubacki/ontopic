@@ -3,7 +3,7 @@ import { connect }          from 'react-redux';
 import ChatBox from '../../components/chat/chat_box';
 import Actions from '../../actions/chat'
 
-class ChatView extends React.Component {
+class TopicView extends React.Component {
   componentDidMount() {
     const { socket } = this.props.session;
     if (!socket) {
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   chat: state.chat
 });
 
-export default connect(mapStateToProps)(ChatView);
+export default connect(mapStateToProps)(TopicView);
