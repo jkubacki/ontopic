@@ -11,6 +11,7 @@ class TopicsView extends React.Component {
   _renderTopics(topics) {
     return topics.map((topic) => {
       return <Topic
+                id={topic.id}
                 key={topic.id}
                 name={topic.name} />
     });

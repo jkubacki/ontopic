@@ -15,7 +15,7 @@ export default function configRoutes(store) {
 
       <Route path="/" component={AuthenticatedContainer}>
         <IndexRoute component={TopicsView} />
-        <Route path="/topic" component={TopicView} />
+        <Route path="/topics/:id" component={TopicView}/>
       </Route>
     </Route>
   );
