@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import Actions from '../../actions/topics'
 
 class TopicsView extends React.Component {
+  componentDidMount() {
+    Actions.fetchTopics(this.props.dispatch);
+  }
+
   render() {
     return (
       <div>Hello topics</div>

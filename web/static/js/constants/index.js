@@ -13,6 +13,8 @@ const Constants = {
 
   CHAT_NEW_MESSAGE: 'CHAT_NEW_MESSAGE',
   CHAT_CONNECTED_TO_CHANNEL: 'CHAT_CONNECTED_TO_CHANNEL',
+
+  TOPICS_FETCHED: 'TOPICS_FETCHED',
 };
 
 export default Constants;
