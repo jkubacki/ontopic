@@ -8,14 +8,16 @@ class HomeIndexView extends React.Component {
       <div>
         Hello Index View
         <ChatBox
-          dispatch={this.props.dispatch} />
+          dispatch={this.props.dispatch}
+          messages={this.props.chat.messages} />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => (
-  state.session
-);
+const mapStateToProps = (state) => ({
+  session: state.session,
+  chat: state.chat
+});
 
 export default connect(mapStateToProps)(HomeIndexView);
