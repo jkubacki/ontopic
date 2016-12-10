@@ -3,6 +3,7 @@ import React                        from 'react';
 import MainLayout                   from '../layouts/main';
 import AuthenticatedContainer       from '../containers/authenticated';
 import TopicView                    from '../views/topic';
+import TopicsView                   from '../views/topics';
 import RegistrationsNew             from '../views/registrations/new';
 import SessionsNew                  from '../views/sessions/new';
 
@@ -13,7 +14,8 @@ export default function configRoutes(store) {
       <Route path="/sign_in" component={SessionsNew} />
 
       <Route path="/" component={AuthenticatedContainer}>
-        <IndexRoute component={TopicView} />
+        <IndexRoute component={TopicsView} />
+        <Route path="/topic" component={TopicView} />
       </Route>
     </Route>
   );
