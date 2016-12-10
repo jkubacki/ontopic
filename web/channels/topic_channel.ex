@@ -1,5 +1,6 @@
 defmodule Ontopic.TopicChannel do
   use Ontopic.Web, :channel
+  alias Ontopic.{Repo, Message, User}
 
   def join("topics:lobby", payload, socket) do
     if authorized?(payload) do
@@ -10,7 +11,15 @@ defmodule Ontopic.TopicChannel do
   end
 
   def handle_in("message:new", payload, socket) do
-    broadcast socket, "message:created", payload
+    user = Repo.get!(User, socket.assigns.current_user.id)
+    changeset = Message.changeset(%Message{}, %{body: payload["message"], user_id: user.id})
+    case Repo.insert(changeset) do
+      {:ok, message} ->
+        broadcast socket, "message:created", %{message: message.body}
+      {:error, _changeset} ->
+        nil
+    end
+
     {:noreply, socket}
   end
 
