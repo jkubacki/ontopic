@@ -1,6 +1,10 @@
 import React from 'react';
 
 export default class ChatInput extends React.Component {
+  componentDidMount() {
+    this.refs.messageInput.focus();
+  }
+
   _sendMessage(e) {
     e.preventDefault();
 
