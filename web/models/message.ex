@@ -9,7 +9,7 @@ defmodule Ontopic.Message do
     timestamps
   end
 
-  @required_fields ~w(body user_id, topic_id)
+  @required_fields ~w(body user_id topic_id)
   @optional_fields ~w()
 
   @doc """
