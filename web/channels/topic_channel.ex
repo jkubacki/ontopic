@@ -3,8 +3,10 @@ defmodule Ontopic.TopicChannel do
   alias Ontopic.{Repo, Message, User}
 
   def join("topics:lobby", payload, socket) do
+    user = Repo.get!(User, socket.assigns.current_user.id)
+    messages = Message |> Ecto.Query.where(user_id: 1) |> Repo.all
     if authorized?(payload) do
-      {:ok, socket}
+      {:ok, %{messages: messages}, socket}
     else
       {:error, %{reason: "unauthorized"}}
     end
@@ -15,7 +17,7 @@ defmodule Ontopic.TopicChannel do
     changeset = Message.changeset(%Message{}, %{body: payload["message"], user_id: user.id})
     case Repo.insert(changeset) do
       {:ok, message} ->
-        broadcast socket, "message:created", %{message: message.body}
+        broadcast socket, "message:created", %{message: message}
       {:error, _changeset} ->
         nil
     end

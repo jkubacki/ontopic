@@ -11,7 +11,7 @@ export default function reducer(state = initialState, action = {}) {
       state.messages.push(action.message);
       return { ...state, messages: state.messages };
     case Constants.CHAT_CONNECTED_TO_CHANNEL:
-      return { ...state, channel: action.channel };
+      return { ...state, channel: action.channel, messages: action.messages };
     default:
       return state;
   }

@@ -10,6 +10,7 @@ Actions.connectToChannel = (socket, dispatch) => {
     dispatch({
       type: Constants.CHAT_CONNECTED_TO_CHANNEL,
       channel: channel,
+      messages: response.messages
     });
   });
 
