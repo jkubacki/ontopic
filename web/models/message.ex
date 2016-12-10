@@ -4,11 +4,12 @@ defmodule Ontopic.Message do
   schema "messages" do
     field :body, :string
     belongs_to :user, Ontopic.User
+    belongs_to :topic, Ontopic.Topic
 
     timestamps
   end
 
-  @required_fields ~w(body user_id)
+  @required_fields ~w(body user_id, topic_id)
   @optional_fields ~w()
 
   @doc """
