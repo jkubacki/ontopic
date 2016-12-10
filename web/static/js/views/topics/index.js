@@ -1,22 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Actions from '../../actions/topics'
+import Topic from '../../components/topics/topic'
 
 class TopicsView extends React.Component {
   componentDidMount() {
     Actions.fetchTopics(this.props.dispatch);
   }
 
+  _renderTopics(topics) {
+    return topics.map((topic) => {
+      return <Topic
+                key={topic.id}
+                name={topic.name} />
+    });
+  }
+
   render() {
     return (
-      <div>Hello topics</div>
+      <div>
+        {::this._renderTopics(this.props.topics)}
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  session: state.session//,
-  // topics: state.topics
+  session: state.session,
+  topics: state.topics.topics
 });
 
 export default connect(mapStateToProps)(TopicsView);
