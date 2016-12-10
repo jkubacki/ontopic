@@ -4,7 +4,7 @@ defmodule Ontopic.TopicChannel do
 
   def join("topics:lobby", payload, socket) do
     user = Repo.get!(User, socket.assigns.current_user.id)
-    messages = Message |> Ecto.Query.where(user_id: 1) |> Repo.all
+    messages = Message |> Ecto.Query.where(user_id: ^user.id) |> Repo.all
     if authorized?(payload) do
       {:ok, %{messages: messages}, socket}
     else
