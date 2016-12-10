@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect }          from 'react-redux';
 import ChatBox from '../../components/chat/chat_box';
 
-export default class HomeIndexView extends React.Component {
+class HomeIndexView extends React.Component {
   render() {
     return (
       <div>
@@ -11,3 +12,9 @@ export default class HomeIndexView extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => (
+  state.session
+);
+
+export default connect(mapStateToProps)(HomeIndexView);
