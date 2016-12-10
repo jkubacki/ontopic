@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Actions from '../../actions/topics'
 import Topic from '../../components/topics/topic'
 
-class TopicsView extends React.Component {
+class TopicsIndexView extends React.Component {
   componentDidMount() {
     Actions.fetchTopics(this.props.dispatch);
   }
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => ({
   topics: state.topics.topics
 });
 
-export default connect(mapStateToProps)(TopicsView);
+export default connect(mapStateToProps)(TopicsIndexView);

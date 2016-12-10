@@ -2,8 +2,8 @@ import { IndexRoute, Route }        from 'react-router';
 import React                        from 'react';
 import MainLayout                   from '../layouts/main';
 import AuthenticatedContainer       from '../containers/authenticated';
-import TopicView                    from '../views/topic';
-import TopicsView                   from '../views/topics';
+import TopicsShowView               from '../views/topics/show';
+import TopicsIndexView              from '../views/topics';
 import RegistrationsNew             from '../views/registrations/new';
 import SessionsNew                  from '../views/sessions/new';
 
@@ -14,8 +14,8 @@ export default function configRoutes(store) {
       <Route path="/sign_in" component={SessionsNew} />
 
       <Route path="/" component={AuthenticatedContainer}>
-        <IndexRoute component={TopicsView} />
-        <Route path="/topics/:id" component={TopicView}/>
+        <IndexRoute component={TopicsIndexView} />
+        <Route path="/topics/:id" component={TopicsShowView}/>
       </Route>
     </Route>
   );
