@@ -18,4 +18,9 @@ erl_crash.dump
 /config/prod.secret.exs
 /priv/static/css/application.css
 /priv/static/js/application.js
+/priv/static/*.woff2
+/priv/static/*.woff
+/priv/static/*.svg
+/priv/static/*.ttf
+/priv/static/*.eot
 /lib/tst.ex
