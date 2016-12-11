@@ -1,4 +1,4 @@
-import { routeActions }   from 'react-router-redux';
+import { routerActions }   from 'react-router-redux';
 import Constants     from '../constants';
 import { httpPost }  from '../utils';
 
@@ -13,7 +13,7 @@ Actions.signUp = (data) => {
         type: Constants.CURRENT_USER,
         currentUser: data.user,
       });
-      dispatch(routeActions.push('/'));
+      dispatch(routerActions.push('/'));
     })
     .catch((error) => {
       error.response.json()
