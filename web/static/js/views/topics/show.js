@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect }          from 'react-redux';
 import ChatBox from '../../components/chat/chat_box';
-import Actions from '../../actions/topic'
+import Actions from '../../actions/topics/show'
 
 class TopicsShowView extends React.Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ class TopicsShowView extends React.Component {
   }
 
   componentWillUnmount() {
-    Actions.leaveTopic(this.props.chat.channel, this.props.dispatch);
+    Actions.leaveTopic(this.props.topic.channel, this.props.dispatch);
   }
 
   render() {
@@ -22,9 +22,9 @@ class TopicsShowView extends React.Component {
         Hello Index View
         <ChatBox
           dispatch={this.props.dispatch}
-          messages={this.props.chat.messages}
-          channel={this.props.chat.channel}
-          topicId={this.props.chat.topicId} />
+          messages={this.props.topic.messages}
+          channel={this.props.topic.channel}
+          topicId={this.props.topic.topicId} />
       </div>
     )
   }
@@ -32,7 +32,7 @@ class TopicsShowView extends React.Component {
 
 const mapStateToProps = (state) => ({
   session: state.session,
-  chat: state.chat
+  topic: state.topic
 });
 
 export default connect(mapStateToProps)(TopicsShowView);

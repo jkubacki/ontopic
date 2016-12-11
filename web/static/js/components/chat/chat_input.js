@@ -1,5 +1,5 @@
 import React from 'react';
-import Actions from '../../actions/topic'
+import Actions from '../../actions/topics/show'
 
 export default class ChatInput extends React.Component {
   componentDidMount() {
