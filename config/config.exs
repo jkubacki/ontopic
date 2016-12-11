@@ -34,3 +34,5 @@ config :guardian, Guardian,
   verify_issuer: true,
   serializer: Ontopic.GuardianSerializer,
   secret_key: "lksjdlkjsdflkjsdf"
+
+config :ontopic, ecto_repos: [MyApp.Ontopic]
