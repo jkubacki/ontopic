@@ -3,6 +3,8 @@ defmodule Ontopic.Topic do
 
   schema "topics" do
     field :name, :string
+    has_many :user_topics, Ontopic.UserTopic
+    has_many :users, through: [:user_topics, :topic]
 
     timestamps
   end

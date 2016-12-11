@@ -9,6 +9,9 @@ defmodule Ontopic.User do
     field :email, :string
     field :encrypted_password, :string
     field :password, :string, virtual: true
+    has_many :messages, Ontopic.Message
+    has_many :user_topics, Ontopic.UserTopic
+    has_many :topics, through: [:user_topics, :user]
 
     timestamps
   end
