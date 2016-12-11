@@ -35,4 +35,4 @@ config :guardian, Guardian,
   serializer: Ontopic.GuardianSerializer,
   secret_key: "lksjdlkjsdflkjsdf"
 
-config :ontopic, ecto_repos: [MyApp.Ontopic]
+config :ontopic, ecto_repos: [Ontopic.Repo]
