@@ -19,7 +19,7 @@ export default class Header extends React.Component {
 
     return (
       <a className="current-user">
-        <ReactGravatar email={currentUser.email} https /> {fullName}
+        <ReactGravatar size={20} email={currentUser.email} https /> {fullName}
       </a>
     );
   }
@@ -42,28 +42,31 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <header className="main-header">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/"><i className="fa fa-columns"/>Home</Link>
-            </li>
-          </ul>
-        </nav>
-        <Link to='/'>
-          <span className='logo'/>
-        </Link>
-        <nav className="right">
-          <ul>
-            <li>
-              {this._renderCurrentUser()}
-            </li>
-            <li>
-              {this._renderSignOutLink()}
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <nav className="navbar navbar-default">
+        <div className="container">
+          <div className="navbar-header">
+            <button className="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <Link to="/"><span className="navbar-brand">Ontopic</span></Link>
+          </div>
+          <div className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                {this._renderCurrentUser()}
+              </li>
+              <li>
+                {this._renderSignOutLink()}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     );
   }
 }
