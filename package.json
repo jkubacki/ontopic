@@ -13,8 +13,8 @@
   "license": "ISC",
   "private": true,
   "engines": {
-    "node": "5.7.1",
-    "npm": "3.6.x"
+    "node": "6.9.2",
+    "npm": "3.10.*"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
