@@ -1,8 +1,8 @@
-import React            from 'react';
-import { connect }      from 'react-redux';
-import Actions          from '../actions/sessions';
-import { routeActions } from 'react-router-redux';
-import Header           from '../layouts/header';
+import React from 'react';
+import { connect } from 'react-redux';
+import Actions from '../actions/sessions';
+import { push } from 'react-router-redux';
+import Header from '../layouts/header';
 
 class AuthenticatedContainer extends React.Component {
   componentDidMount() {
@@ -12,7 +12,8 @@ class AuthenticatedContainer extends React.Component {
     if (phoenixAuthToken && !currentUser) {
       dispatch(Actions.currentUser());
     } else if (!phoenixAuthToken) {
-      dispatch(routeActions.push('/sign_in'));
+      console.log("DASDDAS");
+      dispatch(push('/sign_in'));
     }
   }
 
