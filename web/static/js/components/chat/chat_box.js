@@ -9,7 +9,8 @@ export default class ChatBox extends React.Component {
         <ChatInput
           dispatch={this.props.dispatch}
           channel={this.props.channel}
-          topicId={this.props.topicId} />
+          topicId={this.props.topicId}
+          showTopicForm={this.props.showTopicForm} />
         <ChatMessageBox
           messages={this.props.messages} />
       </div>
