@@ -39,7 +39,8 @@ class TopicsIndexView extends React.Component {
                 dispatch={this.props.dispatch}
                 messages={this.props.topic.messages}
                 channel={this.props.topic.channel}
-                topicId={this.props.topic.topicId} />
+                topicId={this.props.topic.topicId}
+                showTopicForm={this.props.topic.showTopicForm} />
           </div>
         </div>
       </div>
