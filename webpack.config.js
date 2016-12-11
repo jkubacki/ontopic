@@ -11,7 +11,7 @@ function web(dest) { return join('web/static/' + dest); }
 var config = module.exports = {
   entry: {
     application: [
-      web('css/application.sass'),
+      web('css/application.scss'),
       web('js/application.js'),
     ],
   },
@@ -22,7 +22,7 @@ var config = module.exports = {
   },
 
   resolve: {
-    extesions: ['', '.js', '.sass', '.jsx'],
+    extesions: ['', '.js', '.scss', '.jsx'],
     modulesDirectories: ['node_modules'],
   },
 
@@ -40,8 +40,8 @@ var config = module.exports = {
         },
       },
       {
-        test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass?indentedSyntax&includePaths[]=' + __dirname +  '/node_modules'),
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass?includePaths[]=' + __dirname +  '/node_modules'),
       },
       // We'll add the font and SVG loaders that we need
       {
