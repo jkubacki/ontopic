@@ -5,7 +5,8 @@ defmodule Ontopic.UserChannel do
     current_user = socket.assigns.current_user
 
     if String.to_integer(user_id) == current_user.id do
-      {:ok, socket}
+      topics = (current_user |> Repo.preload(:topics)).topics
+      {:ok, %{topics: topics}, socket}
     else
       {:error, %{reason: "Invalid user"}}
     end

@@ -14,12 +14,13 @@ export function setCurrentUser(dispatch, user) {
   const channel = socket.channel(`users:${user.id}`);
 
   if (channel.state != 'joined') {
-    channel.join().receive('ok', () => {
+    channel.join().receive('ok', (payload) => {
       dispatch({
         type: Constants.CURRENT_USER,
         currentUser: user,
         socket: socket,
         channel: channel,
+        topics: payload.topics
       });
     });
   }

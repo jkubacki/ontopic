@@ -5,12 +5,13 @@ const initialState = {
   socket: null,
   channel: null,
   error: null,
+  topics: []
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case Constants.CURRENT_USER:
-      return { ...state, currentUser: action.currentUser, socket: action.socket, channel: action.channel, error: null };
+      return { ...state, currentUser: action.currentUser, socket: action.socket, channel: action.channel, error: null, topics: action.topics };
 
     case Constants.USER_SIGNED_OUT:
       return initialState;

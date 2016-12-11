@@ -20,15 +20,13 @@ class TopicsIndexView extends React.Component {
   render() {
     return (
       <div>
-        {::this._renderTopics(this.props.topics)}
+        My Topics:
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  session: state.session,
-  topics: state.topics.topics
 });
 
 export default connect(mapStateToProps)(TopicsIndexView);
