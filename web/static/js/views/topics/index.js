@@ -29,16 +29,18 @@ class TopicsIndexView extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-2">
-          {::this._renderTopics(this.props.session.topics)}
-        </div>
-        <div className="col-md-10">
-          <ChatBox
-              dispatch={this.props.dispatch}
-              messages={this.props.topic.messages}
-              channel={this.props.topic.channel}
-              topicId={this.props.topic.topicId} />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2">
+            {::this._renderTopics(this.props.session.topics)}
+          </div>
+          <div className="col-md-10">
+            <ChatBox
+                dispatch={this.props.dispatch}
+                messages={this.props.topic.messages}
+                channel={this.props.topic.channel}
+                topicId={this.props.topic.topicId} />
+          </div>
         </div>
       </div>
     )
