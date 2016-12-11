@@ -3,8 +3,16 @@ import Tappable from 'react-tappable';
 import Actions from '../../actions/topics/show'
 
 export default class TopicInput extends React.Component {
-  _createTopic() {
-    //
+  componentDidMount() {
+    this._focusOnInput()
+  }
+
+  _focusOnInput() {
+    this.refs.topicInput.focus();
+  }
+
+  _createTopic(e) {
+    e.preventDefault();
   }
   render() {
     return (
