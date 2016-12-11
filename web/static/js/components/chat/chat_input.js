@@ -33,8 +33,7 @@ export default class ChatInput extends React.Component {
   }
 
   _handlePressEvent(e) {
-    console.log(e);
-    console.log("pressed");
+    Actions.showTopicForm(this.props.dispatch);
   }
 
   _doNothing(e) {
@@ -46,11 +45,11 @@ export default class ChatInput extends React.Component {
       <div>
         <form onSubmit={::this._doNothing}>
           <div className="input-group">
-            <Tappable onPress={this._handlePressEvent} onKeyUp={::this._sendMessage}>
+            <Tappable onPress={::this._handlePressEvent} onKeyUp={::this._sendMessage}>
               <input className="form-control" type="text" ref="messageInput"/>
             </Tappable>
             <span className="input-group-btn">
-              <Tappable onPress={this._handlePressEvent}>
+              <Tappable onPress={::this._handlePressEvent}>
                 <button className="btn btn-default" type="submit">Send</button>
               </Tappable>
             </span>
