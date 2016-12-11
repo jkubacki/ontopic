@@ -30,8 +30,12 @@ export default class ChatInput extends React.Component {
     return (
       <div>
         <form onSubmit={::this._sendMessage}>
-          <input type="text" ref="messageInput"/>
-          <button type="submit">Send</button>
+          <div className="input-group">
+            <input className="form-control" type="text" ref="messageInput"/>
+            <span className="input-group-btn">
+              <button className="btn btn-default" type="submit">Send</button>
+            </span>
+          </div>
         </form>
       </div>
     )
