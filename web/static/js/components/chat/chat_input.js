@@ -21,15 +21,13 @@ export default class ChatInput extends React.Component {
     const { messageInput } = this.refs;
     const message = messageInput.value;
     const { dispatch, channel, topicId } = this.props;
-    if (message == "") {
+    if (message == "" || this.props.showTopicForm) {
       return false;
     }
-    // Actions.sendMessage(message, topicId, channel);
+    Actions.sendMessage(message, topicId, channel);
 
     this._clearInput();
     this._focusOnInput();
-    console.log(`SENT: ${message}`);
-    return false;
   }
 
   _handlePressEvent(e) {
