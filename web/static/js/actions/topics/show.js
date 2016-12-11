@@ -1,3 +1,4 @@
+import { push } from 'react-router-redux';
 import Constants from '../../constants';
 
 const Actions = {};
@@ -21,6 +22,12 @@ Actions.connectToTopic = (topicId, socket, dispatch) => {
       message: msg.message,
     });
   })
+}
+
+Actions.changeTopic = (topicId, channel, socket, dispatch) => {
+  channel.leave();
+  Actions.connectToTopic(topicId, socket, dispatch);
+  dispatch(push(`/${topicId}`));
 }
 
 Actions.leaveTopic = (channel, dispatch) => {

@@ -19,7 +19,11 @@ class TopicsIndexView extends React.Component {
       return <Topic
                 id={topic.id}
                 key={topic.id}
-                name={topic.name} />
+                name={topic.name}
+                channel={this.props.topic.channel}
+                socket={this.props.session.socket}
+                dispatch={this.props.dispatch}
+                currentTopicId={this.props.topic.topicId} />
     });
   }
 
