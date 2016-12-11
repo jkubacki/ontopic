@@ -23,6 +23,13 @@ Actions.connectToTopic = (topicId, socket, dispatch) => {
   })
 }
 
+Actions.leaveTopic = (channel, dispatch) => {
+  channel.leave();
+  dispatch({
+    type: Constants.CHAT_LEAVE_CHANNEL
+  });
+}
+
 Actions.sendMessage = (message, topicId, channel) => {
   channel.push("message:new", { message: message, topicId: topicId })
 }

@@ -12,6 +12,10 @@ class TopicsShowView extends React.Component {
     Actions.connectToTopic(this.props.params.id, socket, this.props.dispatch);
   }
 
+  componentWillUnmount() {
+    Actions.leaveTopic(this.props.chat.channel, this.props.dispatch);
+  }
+
   render() {
     return (
       <div>
