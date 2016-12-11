@@ -9,9 +9,11 @@ const loggerMiddleware = createLogger({
   collapsed: true,
 });
 
-export default function configureStore(browserHistory) {
-  const reduxRouterMiddleware = syncHistory(browserHistory);
-  const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware, thunkMiddleware, loggerMiddleware)(createStore);
-
-  return createStoreWithMiddleware(reducers);
+export default function configureStore() {
+  return createStore(reducers, applyMiddleware(thunkMiddleware, loggerMiddleware))
 }
+
+
+// const
+// const scrollHistory = useScroll(() => browserHistory)()
+// const history = syncHistoryWithStore(scrollHistory, store)

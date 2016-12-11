@@ -19,7 +19,7 @@ export default class Header extends React.Component {
 
     return (
       <a className="current-user">
-        <ReactGravatar size={20} email={currentUser.email} https /> {fullName}
+        <ReactGravatar size={20} email={currentUser.email} /> {fullName}
       </a>
     );
   }
