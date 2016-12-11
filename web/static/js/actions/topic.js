@@ -23,8 +23,8 @@ Actions.connectToTopic = (topicId, socket, dispatch) => {
   })
 }
 
-Actions.sendMessage = (message, channel) => {
-  channel.push("message:new", { message: message })
+Actions.sendMessage = (message, topicId, channel) => {
+  channel.push("message:new", { message: message, topicId: topicId })
 }
 
 export default Actions;

@@ -19,7 +19,8 @@ class TopicsShowView extends React.Component {
         <ChatBox
           dispatch={this.props.dispatch}
           messages={this.props.chat.messages}
-          channel={this.props.chat.channel} />
+          channel={this.props.chat.channel}
+          topicId={this.props.chat.topicId} />
       </div>
     )
   }
