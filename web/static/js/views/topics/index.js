@@ -1,13 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Actions from '../../actions/topics'
 import Topic from '../../components/topics/topic'
 
 class TopicsIndexView extends React.Component {
-  componentDidMount() {
-    Actions.fetchTopics(this.props.dispatch);
-  }
-
   _renderTopics(topics) {
     return topics.map((topic) => {
       return <Topic
@@ -21,12 +16,14 @@ class TopicsIndexView extends React.Component {
     return (
       <div>
         My Topics:
+        {::this._renderTopics(this.props.session.topics)}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
+  session: state.session
 });
 
 export default connect(mapStateToProps)(TopicsIndexView);
