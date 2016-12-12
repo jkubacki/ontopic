@@ -47,4 +47,10 @@ Actions.showTopicForm = (dispatch) => {
   });
 }
 
+Actions.hideTopicForm = (dispatch) => {
+  dispatch({
+    type: Constants.HIDE_TOPIC_FORM
+  });
+}
+
 export default Actions;

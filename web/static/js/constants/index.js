@@ -11,6 +11,7 @@ const Constants = {
 
   TOPICS_FETCHED: 'TOPICS_FETCHED',
   SHOW_TOPIC_FORM: 'SHOW_TOPIC_FORM',
+  HIDE_TOPIC_FORM: 'HIDE_TOPIC_FORM',
 };
 
 export default Constants;

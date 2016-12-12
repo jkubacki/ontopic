@@ -17,7 +17,9 @@ export default function reducer(state = initialState, action = {}) {
     case Constants.CHAT_LEAVE_CHANNEL:
       return initialState;
     case Constants.SHOW_TOPIC_FORM:
-      return { ...state, showTopicForm: true }
+      return { ...state, showTopicForm: true };
+    case Constants.HIDE_TOPIC_FORM:
+      return { ...state, showTopicForm: false };
     default:
       return state;
   }
