@@ -31,10 +31,12 @@ class TopicsIndexView extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-2">
-            {::this._renderTopics(this.props.session.topics)}
+          <div className="col-md-4">
+            <ul className="topics list-group">
+              {::this._renderTopics(this.props.session.topics)}
+            </ul>
           </div>
-          <div className="col-md-10">
+          <div className="col-md-8">
             <ChatBox
                 dispatch={this.props.dispatch}
                 messages={this.props.topic.messages}

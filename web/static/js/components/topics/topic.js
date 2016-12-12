@@ -13,9 +13,9 @@ export default class Topic extends React.Component {
 
   render() {
     return (
-      <div onClick={::this._changeTopic}>
+      <li className="topic list-group-item" onClick={::this._changeTopic}>
         {this.props.name}
-      </div>
+      </li>
     )
   }
 }
