@@ -19,6 +19,10 @@ export default function reducer(state = initialState, action = {}) {
     case Constants.SESSIONS_ERROR:
       return { ...state, error: action.error };
 
+    case Constants.TOPIC_CREATED:
+      state.topics.unshift(action.topic);
+      return { ...state, topics: state.topics };
+
     default:
       return state;
   }
