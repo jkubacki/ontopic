@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames'
 import Actions from '../../actions/topics/show'
 
 export default class Topic extends React.Component {
@@ -12,8 +13,9 @@ export default class Topic extends React.Component {
   }
 
   render() {
+    let classes = classNames("topic", "list-group-item", { "topic--current": (this.props.currentTopicId == this.props.id) });
     return (
-      <li className="topic list-group-item" onClick={::this._changeTopic}>
+      <li className={classes} onClick={::this._changeTopic}>
         {this.props.name}
       </li>
     )

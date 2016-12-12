@@ -38,7 +38,7 @@
   "dependencies": {
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
-    "classnames": "^2.2.1",
+    "classnames": "^2.2.5",
     "es6-promise": "^4.0.5",
     "history": "^4.4.1",
     "invariant": "^2.2.0",

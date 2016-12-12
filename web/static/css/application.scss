@@ -5,6 +5,10 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   cursor: pointer;
 }
 
+.topic--current {
+  font-weight: bold;
+}
+
 .topics {
   font-size: 10px;
 }
