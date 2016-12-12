@@ -11,14 +11,29 @@ export default class TopicInput extends React.Component {
     this.refs.topicInput.focus();
   }
 
-  _createTopic(e) {
-    e.preventDefault();
+  _clearInput() {
+    this.refs.topicInput.value = '';
   }
 
   _handleClose(e) {
     if(e.keyCode === 27){
       Actions.hideTopicForm(this.props.dispatch);
     }
+  }
+
+  _createTopic(e) {
+    e.preventDefault();
+
+    const { topicInput } = this.refs;
+    const topic = topicInput.value;
+    const { dispatch, channel } = this.props;
+    if (topic == "" || !this.props.showTopicForm) {
+      return false;
+    }
+    Actions.createTopic(topic, channel);
+
+    this._clearInput();
+    this._focusOnInput();
   }
 
   render() {

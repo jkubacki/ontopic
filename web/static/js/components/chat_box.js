@@ -6,7 +6,10 @@ import TopicInput from './topics/topic_input';
 export default class ChatBox extends React.Component {
   _renderTopicInput() {
     if (this.props.showTopicForm) {
-      return <TopicInput dispatch={this.props.dispatch}/>;
+      return <TopicInput
+              dispatch={this.props.dispatch}
+              channel={this.props.channel}
+              showTopicForm={this.props.showTopicForm} />;
     } else {
       return null;
     }

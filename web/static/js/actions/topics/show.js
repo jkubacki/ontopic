@@ -53,4 +53,8 @@ Actions.hideTopicForm = (dispatch) => {
   });
 }
 
+Actions.createTopic = (topic, channel) => {
+  channel.push("topic:new", { topic: topic })
+}
+
 export default Actions;
