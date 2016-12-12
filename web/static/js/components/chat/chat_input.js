@@ -7,6 +7,12 @@ export default class ChatInput extends React.Component {
     this._focusOnInput()
   }
 
+  componentDidUpdate() {
+    if (!this.props.showTopicForm) {
+      this._focusOnInput()
+    }
+  }
+
   _clearInput() {
     this.refs.messageInput.value = '';
   }
