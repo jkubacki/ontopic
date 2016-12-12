@@ -1,10 +1,10 @@
 import React from 'react';
-import ChatMessage from './chat_message'
+import Message from './message'
 
-export default class ChatMessageBox extends React.Component {
+export default class MessageBox extends React.Component {
   _renderMessages(messages) {
     return messages.map((message) => {
-      return <ChatMessage
+      return <Message
                 key={message.id}
                 message={message.body} />;
     });

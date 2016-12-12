@@ -1,7 +1,7 @@
 import React from 'react';
-import ChatMessageBox from './chat_message_box';
-import ChatInput from './chat_input';
-import TopicInput from './topic_input';
+import MessageBox from './messages/message_box';
+import MessageInput from './messages/message_input';
+import TopicInput from './topics/topic_input';
 
 export default class ChatBox extends React.Component {
   _renderTopicInput() {
@@ -15,13 +15,13 @@ export default class ChatBox extends React.Component {
   render() {
     return (
       <div>
-        <ChatInput
+        <MessageInput
           dispatch={this.props.dispatch}
           channel={this.props.channel}
           topicId={this.props.topicId}
           showTopicForm={this.props.showTopicForm} />
         {::this._renderTopicInput()}
-        <ChatMessageBox
+        <MessageBox
           messages={this.props.messages} />
       </div>
     )

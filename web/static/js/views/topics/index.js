@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Actions from '../../actions/topics/show'
 import Topic from '../../components/topics/topic'
-import ChatBox from '../../components/chat/chat_box';
+import ChatBox from '../../components/chat_box';
 
 class TopicsIndexView extends React.Component {
   componentDidMount() {

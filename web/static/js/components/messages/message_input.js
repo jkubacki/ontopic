@@ -2,7 +2,7 @@ import React from 'react';
 import Tappable from 'react-tappable';
 import Actions from '../../actions/topics/show'
 
-export default class ChatInput extends React.Component {
+export default class MessageInput extends React.Component {
   componentDidMount() {
     this._focusOnInput()
   }
