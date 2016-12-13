@@ -63,8 +63,6 @@ export default class Header extends React.Component {
             <Link to="/"><span className="navbar-brand">Ontopic</span></Link>
           </div>
           <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav">
-            </ul>
             {this._renderRightNav()}
           </div>
         </div>
