@@ -8,12 +8,25 @@ export default class Header extends React.Component {
     super();
   }
 
-  _renderCurrentUser() {
+  _renderRightNav() {
     const { currentUser } = this.props;
 
-    if (!currentUser) {
-      return false;
+    if (currentUser) {
+      return (
+        <ul className="nav navbar-nav navbar-right">
+          <li>
+            {this._renderCurrentUser()}
+          </li>
+          <li>
+            {this._renderSignOutLink()}
+          </li>
+        </ul>
+      );
     }
+  }
+
+  _renderCurrentUser() {
+    const { currentUser } = this.props;
 
     const fullName = [currentUser.first_name, currentUser.last_name].join(' ');
 
@@ -25,10 +38,6 @@ export default class Header extends React.Component {
   }
 
   _renderSignOutLink() {
-    if (!this.props.currentUser) {
-      return false;
-    }
-
     return (
       <a href="#" onClick={::this._handleSignOutClick}><i className="fa fa-sign-out"/> Sign out</a>
     );
@@ -56,14 +65,7 @@ export default class Header extends React.Component {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
             </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                {this._renderCurrentUser()}
-              </li>
-              <li>
-                {this._renderSignOutLink()}
-              </li>
-            </ul>
+            {this._renderRightNav()}
           </div>
         </div>
       </nav>
