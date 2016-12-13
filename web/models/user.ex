@@ -1,7 +1,6 @@
 defmodule Ontopic.User do
   use Ontopic.Web, :model
-
-  @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
+  import Exgravatar
 
   schema "users" do
     field :first_name, :string
@@ -41,6 +40,16 @@ defmodule Ontopic.User do
         put_change(current_changeset, :encrypted_password, Comeonin.Bcrypt.hashpwsalt(password))
       _ ->
         current_changeset
+    end
+  end
+
+  defimpl Poison.Encoder, for: Ontopic.User do
+    def encode(user, options) do
+      user
+      |> Map.from_struct
+      |> Map.put(:gravatar, gravatar_url(user.email, secure: false))
+      |> Map.take([:id, :first_name, :last_name, :gravatar])
+      |> Poison.Encoder.Map.encode(options)
     end
   end
 end

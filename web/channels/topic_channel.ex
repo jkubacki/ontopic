@@ -3,7 +3,7 @@ defmodule Ontopic.TopicChannel do
   alias Ontopic.{Repo, Message, User, Topic, UserTopic}
 
   def join("topics:" <> topic_id, payload, socket) do
-    messages = Message |> Ecto.Query.where(topic_id: ^topic_id) |> Repo.all
+    messages = Repo.all(from m in Message, preload: :user, where: m.topic_id == ^topic_id)
     if authorized?(payload) do
       {:ok, %{messages: messages}, socket}
     else
@@ -16,6 +16,7 @@ defmodule Ontopic.TopicChannel do
     changeset = Message.changeset(%Message{}, %{body: payload["message"], user_id: user.id, topic_id: payload["topicId"]})
     case Repo.insert(changeset) do
       {:ok, message} ->
+        message = Repo.one(from m in Message, where: m.id == ^message.id, preload: :user)
         broadcast socket, "message:created", %{message: message}
       {:error, _changeset} ->
         nil

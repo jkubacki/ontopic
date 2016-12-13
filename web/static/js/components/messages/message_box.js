@@ -6,7 +6,8 @@ export default class MessageBox extends React.Component {
     return messages.map((message) => {
       return <Message
                 key={message.id}
-                message={message.body} />;
+                body={message.body}
+                user={message.user} />;
     });
   }
 
