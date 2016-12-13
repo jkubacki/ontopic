@@ -6,12 +6,12 @@ import ChatBox from '../../components/chat_box';
 
 class TopicsIndexView extends React.Component {
   componentDidMount() {
-    const { socket } = this.props.session;
+    const { socket, currentUser } = this.props.session;
     if (!socket) {
       return false;
     }
     let topicId = this.props.params.id || 1
-    Actions.connectToTopic(topicId, socket, this.props.dispatch);
+    Actions.connectToTopic(topicId, socket, currentUser, this.props.dispatch);
   }
 
   _renderTopics(topics) {
@@ -23,7 +23,8 @@ class TopicsIndexView extends React.Component {
                 channel={this.props.topic.channel}
                 socket={this.props.session.socket}
                 dispatch={this.props.dispatch}
-                currentTopicId={this.props.topic.topicId} />
+                currentTopicId={this.props.topic.topicId}
+                currentUser={this.props.session.currentUser} />
     });
   }
 

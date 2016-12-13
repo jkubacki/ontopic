@@ -4,7 +4,7 @@ import Constants from '../../constants';
 const Actions = {};
 
 
-Actions.connectToTopic = (topicId, socket, dispatch) => {
+Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
   const channel = socket.channel(`topics:${topicId}`)
 
   channel.join().receive("ok", (response) => {
@@ -24,18 +24,20 @@ Actions.connectToTopic = (topicId, socket, dispatch) => {
   })
 
   channel.on("topic:created", (msg) => {
-    dispatch({
-      type: Constants.TOPIC_CREATED,
-      topic: msg.topic,
-    });
-    Actions.hideTopicForm(dispatch)
-    Actions.changeTopic(msg.topic.id, channel, socket, dispatch)
+    if (currentUser.id == msg.user_id) {
+      dispatch({
+        type: Constants.TOPIC_CREATED,
+        topic: msg.topic,
+      });
+      Actions.hideTopicForm(dispatch)
+      Actions.changeTopic(msg.topic.id, channel, socket, currentUser, dispatch)
+    }
   })
 }
 
-Actions.changeTopic = (topicId, channel, socket, dispatch) => {
+Actions.changeTopic = (topicId, channel, socket, currentUser, dispatch) => {
   channel.leave();
-  Actions.connectToTopic(topicId, socket, dispatch);
+  Actions.connectToTopic(topicId, socket, currentUser, dispatch);
   dispatch(push(`/${topicId}`));
 }
 

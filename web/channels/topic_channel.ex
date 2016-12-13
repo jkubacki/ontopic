@@ -31,7 +31,7 @@ defmodule Ontopic.TopicChannel do
     user_topic_changeset = UserTopic.changeset(%UserTopic{}, %{user_id: user.id, topic_id: topic.id})
     Repo.insert!(user_topic_changeset)
 
-    broadcast socket, "topic:created", %{topic: topic}
+    broadcast socket, "topic:created", %{topic: topic, user_id: user.id}
 
     {:noreply, socket}
   end
