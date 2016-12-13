@@ -39,7 +39,8 @@ defmodule Ontopic.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.0"},
-     {:guardian, "~> 0.9.0"}]
+     {:guardian, "~> 0.9.0"},
+     {:exgravatar, "~> 2.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
