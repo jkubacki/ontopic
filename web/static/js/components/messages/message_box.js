@@ -12,7 +12,7 @@ export default class MessageBox extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="message-box">
         {::this._renderMessages(this.props.messages)}
       </div>
     )
