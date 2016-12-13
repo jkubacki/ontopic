@@ -24,10 +24,14 @@ export default class MessageInput extends React.Component {
   _sendMessage(e) {
     e.preventDefault();
 
+    if (this.props.showTopicForm || e.keyCode !== 13) {
+      return false;
+    }
+
     const { messageInput } = this.refs;
     const message = messageInput.value;
     const { dispatch, channel, topicId } = this.props;
-    if (message == "" || this.props.showTopicForm) {
+    if (message === "") {
       return false;
     }
     Actions.sendMessage(message, topicId, channel);
