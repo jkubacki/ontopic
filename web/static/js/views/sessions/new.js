@@ -42,6 +42,7 @@ class SessionsNew extends React.Component {
             {::this._renderError()}
             <div className="field">
               <input
+                className="form-control"
                 ref="email"
                 type="Email"
                 id="user_email"
@@ -51,6 +52,7 @@ class SessionsNew extends React.Component {
             </div>
             <div className="field">
               <input
+                className="form-control"
                 ref="password"
                 type="password"
                 id="user_password"
@@ -58,9 +60,9 @@ class SessionsNew extends React.Component {
                 required="true"
                 defaultValue="12345678"/>
             </div>
-            <button type="submit">Sign in</button>
+            <button className="btn btn-default" type="submit">Sign in</button>
           </form>
-          <Link to="/sign_up">Create new account</Link>
+          <Link className="btn btn-default" to="/sign_up">Create new account</Link>
         </main>
       </div>
     );
