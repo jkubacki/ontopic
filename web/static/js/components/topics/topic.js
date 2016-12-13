@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames'
-import Actions from '../../actions/topics/show'
+import Actions from '../../actions/topics'
 
 export default class Topic extends React.Component {
   _changeTopic() {

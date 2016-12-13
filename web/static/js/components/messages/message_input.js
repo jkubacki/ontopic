@@ -1,6 +1,6 @@
 import React from 'react';
 import Tappable from 'react-tappable';
-import Actions from '../../actions/topics/show'
+import Actions from '../../actions/topics'
 
 export default class MessageInput extends React.Component {
   componentDidMount() {

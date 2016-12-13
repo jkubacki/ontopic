@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Actions from '../../actions/topics/show'
+import Actions from '../../actions/topics'
 import Topic from '../../components/topics/topic'
 import ChatBox from '../../components/chat_box';
 

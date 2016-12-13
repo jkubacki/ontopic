@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux';
-import Constants from '../../constants';
+import Constants from '../constants';
 
 const Actions = {};
 
