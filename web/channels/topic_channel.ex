@@ -3,7 +3,7 @@ defmodule Ontopic.TopicChannel do
   alias Ontopic.{Repo, Message, User, Topic, UserTopic}
 
   def join("topics:" <> topic_id, payload, socket) do
-    messages = Message |> Ecto.Query.where(topic_id: ^topic_id) |> Repo.all
+    messages = Repo.all(from m in Message, preload: :user, where: m.topic_id == ^topic_id)
     if authorized?(payload) do
       {:ok, %{messages: messages}, socket}
     else

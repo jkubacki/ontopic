@@ -17,6 +17,10 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   padding: 10px;
 }
 
+.message__body {
+  margin-top: 5px;
+}
+
 .message:nth-child(even) {
   background-color: #f2f2f2;
 }

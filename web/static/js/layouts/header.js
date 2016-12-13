@@ -1,7 +1,7 @@
-import React          from 'react';
-import { Link }       from 'react-router';
-import Actions        from '../actions/sessions';
-import ReactGravatar  from 'react-gravatar';
+import React from 'react';
+import { Link } from 'react-router';
+import Actions from '../actions/sessions';
+import User from '../components/user';
 
 export default class Header extends React.Component {
   constructor() {
@@ -27,14 +27,11 @@ export default class Header extends React.Component {
 
   _renderCurrentUser() {
     const { currentUser } = this.props;
-
-    const fullName = [currentUser.first_name, currentUser.last_name].join(' ');
-
     return (
       <a className="current-user">
-        <ReactGravatar size={20} email={currentUser.email} /> {fullName}
+        <User user={this.props.currentUser} />
       </a>
-    );
+    )
   }
 
   _renderSignOutLink() {

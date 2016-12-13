@@ -26,7 +26,7 @@ defmodule Ontopic.Message do
   defimpl Poison.Encoder, for: Ontopic.Message do
     def encode(model, options) do
       model
-      |> Map.take([:id, :body])
+      |> Map.take([:id, :body, :user])
       |> Poison.Encoder.encode(options)
     end
   end
