@@ -12,7 +12,6 @@ class AuthenticatedContainer extends React.Component {
     if (phoenixAuthToken && !currentUser) {
       dispatch(Actions.currentUser());
     } else if (!phoenixAuthToken) {
-      console.log("DASDDAS");
       dispatch(push('/sign_in'));
     }
   }
