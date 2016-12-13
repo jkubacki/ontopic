@@ -16,6 +16,7 @@ defmodule Ontopic.TopicChannel do
     changeset = Message.changeset(%Message{}, %{body: payload["message"], user_id: user.id, topic_id: payload["topicId"]})
     case Repo.insert(changeset) do
       {:ok, message} ->
+        message = Repo.one(from m in Message, where: m.id == ^message.id, preload: :user)
         broadcast socket, "message:created", %{message: message}
       {:error, _changeset} ->
         nil
