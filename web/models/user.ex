@@ -11,12 +11,13 @@ defmodule Ontopic.User do
     has_many :messages, Ontopic.Message
     has_many :user_topics, Ontopic.UserTopic
     has_many :topics, through: [:user_topics, :topic]
+    belongs_to :topic
 
     timestamps
   end
 
   @required_fields ~w(first_name last_name email password)
-  @optional_fields ~w(encrypted_password)
+  @optional_fields ~w(encrypted_password topic_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
