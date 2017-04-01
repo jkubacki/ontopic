@@ -11,7 +11,7 @@ defmodule Ontopic.User do
     has_many :messages, Ontopic.Message
     has_many :user_topics, Ontopic.UserTopic
     has_many :topics, through: [:user_topics, :topic]
-    belongs_to :topic
+    belongs_to :topic, Ontopic.Topic
 
     timestamps
   end

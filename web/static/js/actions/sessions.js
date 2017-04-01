@@ -2,6 +2,7 @@ import { push }                           from 'react-router-redux';
 import Constants                          from '../constants';
 import { Socket }                         from 'phoenix';
 import { httpGet, httpPost, httpDelete }  from '../utils';
+import TopicActions                       from './topics'
 
 export function setCurrentUser(dispatch, user) {
   const socket = new Socket('/socket', {
@@ -22,6 +23,7 @@ export function setCurrentUser(dispatch, user) {
         channel: channel,
         topics: payload.topics
       });
+      TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
     });
   }
 

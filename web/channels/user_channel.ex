@@ -6,7 +6,7 @@ defmodule Ontopic.UserChannel do
 
     if String.to_integer(user_id) == current_user.id do
       topics = (current_user |> Repo.preload(:topics)).topics
-      {:ok, %{topics: Enum.reverse(topics)}, socket}
+      {:ok, %{topics: Enum.reverse(topics), topic_id: current_user.topic_id}, socket}
     else
       {:error, %{reason: "Invalid user"}}
     end
