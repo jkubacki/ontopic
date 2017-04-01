@@ -3,6 +3,12 @@ defmodule Ontopic.TopicChannel do
   alias Ontopic.{Repo, Message, User, Topic, UserTopic}
 
   def join("topics:" <> topic_id, payload, socket) do
+    user = Repo.get!(User, socket.assigns.current_user.id)
+
+    user
+    |> Ecto.Changeset.change(%{topic_id: String.to_integer(topic_id)})
+    |> Repo.update
+
     messages = Repo.all(from m in Message, preload: :user, where: m.topic_id == ^topic_id)
     if authorized?(payload) do
       {:ok, %{messages: messages}, socket}
