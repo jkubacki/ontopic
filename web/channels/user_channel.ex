@@ -26,10 +26,11 @@ defmodule Ontopic.UserChannel do
   end
 
   def handle_in("topic:leave", payload, socket) do
-    Repo.get_by!(UserTopic, user_id: socket.assigns.current_user.id, topic_id: payload["topic_id"])
+    current_user = socket.assigns.current_user
+    Repo.get_by!(UserTopic, user_id: current_user.id, topic_id: payload["topic_id"])
     |> Repo.delete!
 
-    broadcast socket, "topic:left", %{topic_id: payload["topic_id"]}
+    broadcast socket, "topic:left", %{topic_id: payload["topic_id"], user_id: current_user.id}
 
     {:noreply, socket}
   end
