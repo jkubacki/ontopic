@@ -36,11 +36,8 @@ Actions.changeTopic = (topicId, socket, currentUser, dispatch) => {
   dispatch(push(`/${topicId}`));
 }
 
-Actions.leaveTopic = (channel, dispatch) => {
-  channel.leave();
-  dispatch({
-    type: Constants.CHAT_LEAVE_CHANNEL
-  });
+Actions.leaveTopic = (topicId, channel) => {
+  channel.push("topic:leave", { topic_id: topicId })
 }
 
 Actions.sendMessage = (message, topicId, channel) => {
