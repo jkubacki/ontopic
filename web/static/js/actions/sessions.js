@@ -24,7 +24,7 @@ export function setCurrentUser(dispatch, user) {
         topics: payload.topics
       });
       if (payload.topic_id) {
-        // TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
+        TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
       } else {
         TopicActions.showTopicInput(dispatch);
       }
