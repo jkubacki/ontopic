@@ -5,7 +5,7 @@ import Actions from '../../actions/topics'
 
 export default class Topic extends React.Component {
   _changeTopic() {
-    const { id, channel, socket, dispatch, currentTopicId, currentUser } = this.props;
+    const { id, socket, dispatch, currentTopicId, currentUser } = this.props;
     if (currentTopicId == id) {
       return false;
     }
