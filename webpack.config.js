@@ -26,6 +26,10 @@ var config = module.exports = {
     modulesDirectories: ['node_modules'],
   },
 
+  sassLoader: {
+    precision: 10  // Avoid rounding errors in bootstrap styles
+  },
+
   module: {
     noParse: /vendor\/phoenix/,
     loaders: [
