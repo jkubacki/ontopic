@@ -21,13 +21,20 @@ export default class MessageInput extends React.Component {
     this.refs.messageInput.focus();
   }
 
-  _sendMessage(e) {
+  _handleKeyUp(e) {
     e.preventDefault();
-
     if (this.props.showTopicInput || e.keyCode !== 13) {
       return false;
     }
+    this._sendMessage()
+  }
 
+  _handleButton(e) {
+    e.preventDefault();
+    this._sendMessage();
+  }
+
+  _sendMessage() {
     const { messageInput } = this.refs;
     const message = messageInput.value;
     const { dispatch, channel, topicId } = this.props;
@@ -53,11 +60,11 @@ export default class MessageInput extends React.Component {
       <div>
         <form onSubmit={::this._doNothing}>
           <div className="input-group">
-            <Tappable onPress={::this._handlePressEvent} onKeyUp={::this._sendMessage}>
+            <Tappable onPress={::this._handlePressEvent} onKeyUp={::this._handleKeyUp}>
               <input className="form-control" type="text" ref="messageInput"/>
             </Tappable>
             <span className="input-group-btn">
-              <Tappable onPress={::this._handlePressEvent}>
+              <Tappable onPress={::this._handlePressEvent} onClick={::this._handleButton}>
                 <button className="btn btn-default" type="submit">Send</button>
               </Tappable>
             </span>
