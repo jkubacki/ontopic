@@ -5,19 +5,6 @@ import Topic from '../../components/topics/topic'
 import ChatBox from '../../components/chat_box';
 
 class TopicsIndexView extends React.Component {
-  componentDidMount() {
-    const { socket, currentUser } = this.props.session;
-    if (!socket) {
-      return false;
-    }
-    let topicId = this.props.params.id || 1
-    Actions.connectToTopic(topicId, socket, currentUser, this.props.dispatch);
-  }
-
-  componentWillUnmount() {
-    this.props.topic.channel.leave();
-  }
-
   _renderTopics(topics) {
     return topics.map((topic) => {
       return <Topic
