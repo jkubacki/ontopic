@@ -12,12 +12,22 @@ export default class Topic extends React.Component {
     Actions.changeTopic(id, socket, currentUser, dispatch);
   }
 
+  _leaveTopic() {
+    const { id, userChannel } = this.props;
+    Actions.leaveTopic(id, userChannel);
+  }
+
   render() {
     let classes = classNames("topic", "list-group-item", { "topic--current": (this.props.currentTopicId == this.props.id) });
     return (
-      <li className={classes} onClick={::this._changeTopic}>
-        {this.props.name}
-      </li>
+      <div>
+        <li className={classes} onClick={::this._changeTopic}>
+          {this.props.name}
+        </li>
+        <button className={classes} style={{width: 25, height: 25, padding: 10}} onClick={::this._leaveTopic}>
+          x
+        </button>
+      </div>
     )
   }
 }
