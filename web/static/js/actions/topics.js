@@ -36,7 +36,9 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
 }
 
 Actions.changeTopic = (topicId, channel, socket, currentUser, dispatch) => {
-  channel.leave();
+  if (channel) {
+    channel.leave();
+  }
   Actions.connectToTopic(topicId, socket, currentUser, dispatch);
   dispatch(push(`/${topicId}`));
 }
