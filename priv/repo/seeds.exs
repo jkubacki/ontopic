@@ -22,7 +22,8 @@ user =
       first_name: "John",
       last_name: "Doe",
       email: "john@phoenix-trello.com",
-      password: "12345678"
+      password: "12345678",
+      topic_id: topic.id
     }
   )
   |> Repo.insert!
