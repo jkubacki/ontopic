@@ -25,6 +25,12 @@ export default function reducer(state = initialState, action = {}) {
       return { ...state, showMessageInput: true };
     case Constants.HIDE_MESSAGE_INPUT:
       return { ...state, showMessageInput: false };
+    case Constants.TOPIC_LEFT:
+      if (action.topicId == state.topicId) {
+        return { ...state, showMessageInput: false, showTopicInput: true, topicId: null, messages: [] }
+      } else {
+        return state;
+      }
     default:
       return state;
   }
