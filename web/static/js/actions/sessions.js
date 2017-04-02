@@ -41,6 +41,15 @@ export function setCurrentUser(dispatch, user) {
       TopicActions.changeTopic(msg.topic.id, socket, user, dispatch)
     }
   })
+
+  channel.on("topic:left", (msg) => {
+    if (user.id == msg.user_id) {
+      dispatch({
+        type: Constants.TOPIC_LEFT,
+        topicId: msg.topic_id,
+      });
+    }
+  })
 };
 
 const Actions = {

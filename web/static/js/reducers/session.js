@@ -23,6 +23,10 @@ export default function reducer(state = initialState, action = {}) {
       state.topics.unshift(action.topic);
       return { ...state, topics: state.topics };
 
+    case Constants.TOPIC_LEFT:
+      let topics = state.topics.filter(function(topic) { return topic.id != action.topicId });
+      return { ...state, topics: topics };
+
     default:
       return state;
   }
