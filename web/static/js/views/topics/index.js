@@ -12,6 +12,7 @@ class TopicsIndexView extends React.Component {
                 key={topic.id}
                 name={topic.name}
                 channel={this.props.topic.channel}
+                userChannel={this.props.session.channel}
                 socket={this.props.session.socket}
                 dispatch={this.props.dispatch}
                 currentTopicId={this.props.topic.topicId}
