@@ -23,7 +23,9 @@ export function setCurrentUser(dispatch, user) {
         channel: channel,
         topics: payload.topics
       });
-      TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
+      if (payload.topic_id) {
+        TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
+      }
     });
   }
 
