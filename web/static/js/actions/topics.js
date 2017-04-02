@@ -14,6 +14,7 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
       messages: response.messages,
       topicId: topicId
     });
+    Actions.hideTopicForm(dispatch);
   });
 
   channel.on("message:created", (msg) => {
