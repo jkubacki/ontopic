@@ -18,7 +18,7 @@ export default function reducer(state = initialState, action = {}) {
       return initialState;
     case Constants.SHOW_TOPIC_INPUT:
       return { ...state, showTopicInput: true };
-    case Constants.HIDE_TOPIC_FORM:
+    case Constants.HIDE_TOPIC_INPUT:
       return { ...state, showTopicInput: false };
     default:
       return state;

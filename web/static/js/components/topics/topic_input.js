@@ -17,7 +17,7 @@ export default class TopicInput extends React.Component {
 
   _handleClose(e) {
     if(e.keyCode === 27){
-      Actions.hideTopicForm(this.props.dispatch);
+      Actions.hideTopicInput(this.props.dispatch);
     }
   }
 

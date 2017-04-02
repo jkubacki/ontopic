@@ -14,7 +14,7 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
       messages: response.messages,
       topicId: topicId
     });
-    Actions.hideTopicForm(dispatch);
+    Actions.hideTopicInput(dispatch);
   });
 
   channel.on("message:created", (msg) => {
@@ -30,7 +30,7 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
         type: Constants.TOPIC_CREATED,
         topic: msg.topic,
       });
-      Actions.hideTopicForm(dispatch)
+      Actions.hideTopicInput(dispatch)
       Actions.changeTopic(msg.topic.id, channel, socket, currentUser, dispatch)
     }
   })
@@ -61,9 +61,9 @@ Actions.showTopicInput = (dispatch) => {
   });
 }
 
-Actions.hideTopicForm = (dispatch) => {
+Actions.hideTopicInput = (dispatch) => {
   dispatch({
-    type: Constants.HIDE_TOPIC_FORM
+    type: Constants.HIDE_TOPIC_INPUT
   });
 }
 
