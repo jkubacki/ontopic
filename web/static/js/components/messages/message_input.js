@@ -59,16 +59,14 @@ export default class MessageInput extends React.Component {
     return (
       <div>
         <form onSubmit={::this._doNothing}>
-          <div className="input-group">
-            <Tappable onPress={::this._handlePressEvent} onKeyUp={::this._handleKeyUp}>
-              <input className="form-control" type="text" ref="messageInput"/>
-            </Tappable>
-            <span className="input-group-btn">
-              <Tappable onPress={::this._handlePressEvent} onClick={::this._handleButton}>
-                <button className="btn btn-default" type="submit">Send</button>
-              </Tappable>
-            </span>
-          </div>
+          <Tappable onPress={::this._handlePressEvent}>
+            <div className="input-group">
+              <input className="form-control" type="text" ref="messageInput" onKeyUp={::this._handleKeyUp}/>
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="submit" onClick={::this._handleButton}>Send</button>
+              </span>
+            </div>
+          </Tappable>
         </form>
       </div>
     )
