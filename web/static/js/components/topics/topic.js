@@ -9,7 +9,7 @@ export default class Topic extends React.Component {
     if (currentTopicId == id) {
       return false;
     }
-    Actions.changeTopic(id, channel, socket, currentUser, dispatch);
+    Actions.changeTopic(id, socket, currentUser, dispatch);
   }
 
   render() {

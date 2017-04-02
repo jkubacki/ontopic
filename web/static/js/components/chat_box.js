@@ -8,7 +8,7 @@ export default class ChatBox extends React.Component {
     if (this.props.showTopicInput) {
       return <TopicInput
               dispatch={this.props.dispatch}
-              channel={this.props.channel}
+              channel={this.props.userChannel}
               showTopicInput={this.props.showTopicInput} />;
     } else {
       return null;

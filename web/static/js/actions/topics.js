@@ -24,22 +24,13 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
       message: msg.message,
     });
   })
-
-  channel.on("topic:created", (msg) => {
-    if (currentUser.id == msg.user_id) {
-      dispatch({
-        type: Constants.TOPIC_CREATED,
-        topic: msg.topic,
-      });
-      Actions.hideTopicInput(dispatch)
-      Actions.changeTopic(msg.topic.id, channel, socket, currentUser, dispatch)
-    }
-  })
 }
 
-Actions.changeTopic = (topicId, channel, socket, currentUser, dispatch) => {
-  if (channel) {
-    channel.leave();
+Actions.changeTopic = (topicId, socket, currentUser, dispatch) => {
+  for (var channel of socket.channels) {
+    if (channel.topic.includes("topics:")) {
+      channel.leave();
+    }
   }
   Actions.connectToTopic(topicId, socket, currentUser, dispatch);
   dispatch(push(`/${topicId}`));

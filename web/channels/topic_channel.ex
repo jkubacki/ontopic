@@ -1,6 +1,6 @@
 defmodule Ontopic.TopicChannel do
   use Ontopic.Web, :channel
-  alias Ontopic.{Repo, Message, User, Topic, UserTopic}
+  alias Ontopic.{Repo, Message, User}
 
   def join("topics:" <> topic_id, payload, socket) do
     user = Repo.get!(User, socket.assigns.current_user.id)
@@ -27,18 +27,6 @@ defmodule Ontopic.TopicChannel do
       {:error, _changeset} ->
         nil
     end
-
-    {:noreply, socket}
-  end
-
-  def handle_in("topic:new", payload, socket) do
-    user = Repo.get!(User, socket.assigns.current_user.id)
-    topic_changeset = Topic.changeset(%Topic{}, %{name: payload["topic"]})
-    topic = Repo.insert!(topic_changeset)
-    user_topic_changeset = UserTopic.changeset(%UserTopic{}, %{user_id: user.id, topic_id: topic.id})
-    Repo.insert!(user_topic_changeset)
-
-    broadcast socket, "topic:created", %{topic: topic, user_id: user.id}
 
     {:noreply, socket}
   end

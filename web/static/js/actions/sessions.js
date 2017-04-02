@@ -31,12 +31,16 @@ export function setCurrentUser(dispatch, user) {
     });
   }
 
-  channel.on('topics:add', (msg) => {
-    dispatch({
-        type: Constants.TOPIC_ADDED,
-        board: msg.board,
+  channel.on("topic:created", (msg) => {
+    if (user.id == msg.user_id) {
+      dispatch({
+        type: Constants.TOPIC_CREATED,
+        topic: msg.topic,
       });
-  });
+      TopicActions.hideTopicInput(dispatch)
+      TopicActions.changeTopic(msg.topic.id, socket, user, dispatch)
+    }
+  })
 };
 
 const Actions = {
