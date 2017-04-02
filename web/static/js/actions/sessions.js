@@ -25,6 +25,8 @@ export function setCurrentUser(dispatch, user) {
       });
       if (payload.topic_id) {
         TopicActions.connectToTopic(payload.topic_id, socket, user, dispatch);
+      } else {
+        TopicActions.showTopicForm(dispatch);
       }
     });
   }
