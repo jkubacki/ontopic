@@ -9,15 +9,23 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Ontopic.{Repo, User}
+alias Ontopic.{Repo, User, Topic, UserTopic}
 
-[
-  %{
-    first_name: "John",
-    last_name: "Doe",
-    email: "john@phoenix-trello.com",
-    password: "12345678"
-  },
-]
-|> Enum.map(&User.changeset(%User{}, &1))
-|> Enum.each(&Repo.insert!(&1))
+topic =
+  Topic.changeset(%Topic{}, %{id: 1, name: "Shoutbox"})
+  |> Repo.insert!
+
+user =
+  User.changeset(
+    %User{},
+     %{
+      first_name: "John",
+      last_name: "Doe",
+      email: "john@phoenix-trello.com",
+      password: "12345678"
+    }
+  )
+  |> Repo.insert!
+
+UserTopic.changeset(%UserTopic{}, %{user_id: user.id, topic_id: topic.id})
+|> Repo.insert!
