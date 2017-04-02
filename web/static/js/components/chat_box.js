@@ -15,14 +15,22 @@ export default class ChatBox extends React.Component {
     }
   }
 
+  _renderMessageInput() {
+    if (this.props.showMessageInput) {
+      return <MessageInput
+              dispatch={this.props.dispatch}
+              channel={this.props.channel}
+              topicId={this.props.topicId}
+              showTopicInput={this.props.showTopicInput} />;
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <div>
-        <MessageInput
-          dispatch={this.props.dispatch}
-          channel={this.props.channel}
-          topicId={this.props.topicId}
-          showTopicInput={this.props.showTopicInput} />
+        {::this._renderMessageInput()}
         {::this._renderTopicInput()}
         <MessageBox
           messages={this.props.messages} />

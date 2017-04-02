@@ -34,7 +34,8 @@ class TopicsIndexView extends React.Component {
                 messages={this.props.topic.messages}
                 channel={this.props.topic.channel}
                 topicId={this.props.topic.topicId}
-                showTopicInput={this.props.topic.showTopicInput} />
+                showTopicInput={this.props.topic.showTopicInput}
+                showMessageInput={this.props.topic.showMessageInput} />
           </div>
         </div>
       </div>

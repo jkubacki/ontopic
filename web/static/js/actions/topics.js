@@ -15,6 +15,7 @@ Actions.connectToTopic = (topicId, socket, currentUser, dispatch) => {
       topicId: topicId
     });
     Actions.hideTopicInput(dispatch);
+    Actions.showMessageInput(dispatch);
   });
 
   channel.on("message:created", (msg) => {
@@ -64,6 +65,17 @@ Actions.showTopicInput = (dispatch) => {
 Actions.hideTopicInput = (dispatch) => {
   dispatch({
     type: Constants.HIDE_TOPIC_INPUT
+  });
+}
+Actions.showMessageInput = (dispatch) => {
+  dispatch({
+    type: Constants.SHOW_MESSAGE_INPUT
+  });
+}
+
+Actions.hideMessageInput = (dispatch) => {
+  dispatch({
+    type: Constants.HIDE_MESSAGE_INPUT
   });
 }
 
