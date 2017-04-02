@@ -4,7 +4,7 @@ const initialState = {
   messages: [],
   channel: null,
   topicId: null,
-  showTopicForm: false
+  showTopicInput: false
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -16,10 +16,10 @@ export default function reducer(state = initialState, action = {}) {
       return { ...state, channel: action.channel, messages: action.messages, topicId: action.topicId };
     case Constants.CHAT_LEAVE_CHANNEL:
       return initialState;
-    case Constants.SHOW_TOPIC_FORM:
-      return { ...state, showTopicForm: true };
+    case Constants.SHOW_TOPIC_INPUT:
+      return { ...state, showTopicInput: true };
     case Constants.HIDE_TOPIC_FORM:
-      return { ...state, showTopicForm: false };
+      return { ...state, showTopicInput: false };
     default:
       return state;
   }

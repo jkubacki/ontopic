@@ -55,9 +55,9 @@ Actions.sendMessage = (message, topicId, channel) => {
   channel.push("message:new", { message: message, topicId: topicId })
 }
 
-Actions.showTopicForm = (dispatch) => {
+Actions.showTopicInput = (dispatch) => {
   dispatch({
-    type: Constants.SHOW_TOPIC_FORM
+    type: Constants.SHOW_TOPIC_INPUT
   });
 }
 

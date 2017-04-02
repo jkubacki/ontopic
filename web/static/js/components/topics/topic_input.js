@@ -27,7 +27,7 @@ export default class TopicInput extends React.Component {
     const { topicInput } = this.refs;
     const topic = topicInput.value;
     const { dispatch, channel } = this.props;
-    if (topic == "" || !this.props.showTopicForm) {
+    if (topic == "" || !this.props.showTopicInput) {
       return false;
     }
     Actions.createTopic(topic, channel);

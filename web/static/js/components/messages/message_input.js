@@ -8,7 +8,7 @@ export default class MessageInput extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.showTopicForm) {
+    if (!this.props.showTopicInput) {
       this._focusOnInput()
     }
   }
@@ -24,7 +24,7 @@ export default class MessageInput extends React.Component {
   _sendMessage(e) {
     e.preventDefault();
 
-    if (this.props.showTopicForm || e.keyCode !== 13) {
+    if (this.props.showTopicInput || e.keyCode !== 13) {
       return false;
     }
 
@@ -41,7 +41,7 @@ export default class MessageInput extends React.Component {
   }
 
   _handlePressEvent(e) {
-    Actions.showTopicForm(this.props.dispatch);
+    Actions.showTopicInput(this.props.dispatch);
   }
 
   _doNothing(e) {

@@ -5,11 +5,11 @@ import TopicInput from './topics/topic_input';
 
 export default class ChatBox extends React.Component {
   _renderTopicInput() {
-    if (this.props.showTopicForm) {
+    if (this.props.showTopicInput) {
       return <TopicInput
               dispatch={this.props.dispatch}
               channel={this.props.channel}
-              showTopicForm={this.props.showTopicForm} />;
+              showTopicInput={this.props.showTopicInput} />;
     } else {
       return null;
     }
@@ -22,7 +22,7 @@ export default class ChatBox extends React.Component {
           dispatch={this.props.dispatch}
           channel={this.props.channel}
           topicId={this.props.topicId}
-          showTopicForm={this.props.showTopicForm} />
+          showTopicInput={this.props.showTopicInput} />
         {::this._renderTopicInput()}
         <MessageBox
           messages={this.props.messages} />
