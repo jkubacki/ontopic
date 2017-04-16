@@ -1,6 +1,13 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+$background-color: white;
+$topic-color: white;
+$topic-current-color: white;
+$message-color: white;
+$message-even-color: lightgrey;
+$navbar-color: ligthgrey;
+
 .topic {
   cursor: pointer;
 }
@@ -15,6 +22,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 .message {
   padding: 10px;
+  background-color: $message-color;
 }
 
 .message__body {
@@ -22,5 +30,21 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 }
 
 .message:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: $message-even-color;
+}
+
+#main-container {
+  background-color: $background-color;
+}
+
+.topic {
+  background-color: $topic-color;
+
+  .topic--current {
+    background-color: $topic-current-color;
+  }
+}
+
+.navbar-default {
+  background-color: $navbar-color;
 }
