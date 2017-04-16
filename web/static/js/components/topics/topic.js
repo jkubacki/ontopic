@@ -23,10 +23,10 @@ export default class Topic extends React.Component {
       <div>
         <li className={classes} onClick={::this._changeTopic}>
           {this.props.name}
+          <div className="pull-right">
+            <button onClick={::this._leaveTopic}>x</button>
+          </div>
         </li>
-        <button className={classes} style={{width: 25, height: 25, padding: 10}} onClick={::this._leaveTopic}>
-          x
-        </button>
       </div>
     )
   }
